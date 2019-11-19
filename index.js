@@ -16,8 +16,6 @@ const run = async () => {
         await cdIntoNewApp(appName);
         await gitInit();
         await addConfigFiles();
-        await addReadMeFile();
-        await addGitIgnoreFile();
         await createDirectory("public");
         await addPublicFiles();
         await createDirectory("src");
@@ -82,24 +80,6 @@ const addFiles = (directory, templates) => {
 const addConfigFiles = () => {
     log("adding config files...");
     return addFiles(appDirectory, configTemplates);
-};
-
-const writeFile = (fileName, contents) => {
-    return new Promise(resolve => fs.writeFile(fileName, contents, function (err) {
-        if (err) throw err;
-        log(fileName, 'Added!');
-        resolve();
-    }));
-};
-
-const addReadMeFile = () => {
-    log("Adding Readme file...");
-    return writeFile("readme.md", "This is simple boilerplate than Create react app")
-};
-
-const addGitIgnoreFile = () => {
-    log("Adding gitignore file");
-    return writeFile(".gitignore", "node_modules/ \n dist/");
 };
 
 const addPublicFiles = () => {
