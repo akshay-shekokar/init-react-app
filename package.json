@@ -17,6 +17,6 @@
         "text": "github:requirejs/text"
     },
     "devDependencies": {
-        "webpack": "^4.19.1"
+        "webpack": "^5.75.0"
     }
 }
